@@ -1,0 +1,18 @@
+.options {
+    background: #B2D5FF;
+    padding: 10px;
+}
+.options .opt {
+    margin: 10px;
+}
+.options .inport {
+    margin: 10px 0 10px 0;
+}
+#stop {
+    margin-left: 0;
+}
+#main{
+    font-size: 30px;
+    padding-left: 10%;
+    padding-right: 10%;
+}

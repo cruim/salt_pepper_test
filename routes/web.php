@@ -15,12 +15,10 @@ Route::auth();
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('upload_image','EventImageController@index');
+Route::post('upload_image/files','EventImageController@getFiles');
