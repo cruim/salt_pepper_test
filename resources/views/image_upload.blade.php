@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="container">
-        <div class="alert alert-danger alert-dismissable page-alert scheduller_note"style="text-align: center">
-                If you add more than one image your votes count is set to zero
+        <div class="alert alert-danger alert-dismissable page-alert scheduller_note" style="text-align: center">
+            If you add more than one image your votes count is set to zero
         </div>
     </div>
     <div class="container">

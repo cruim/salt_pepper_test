@@ -29,12 +29,10 @@ class AdminController extends Controller
 
         $result = EventImage::where('id', $id)->first();
 
-        if ($result->active == 0)
-        {
+        if ($result->active == 0) {
             EventImage::where("id", "=", $id)
                 ->update(["active" => 1]);
-        } else
-        {
+        } else {
             EventImage::where("id", "=", $id)
                 ->update(["active" => 0]);
         }

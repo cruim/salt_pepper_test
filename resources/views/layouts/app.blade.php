@@ -45,8 +45,9 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     @if(Auth::check())
-                    &nbsp;<li><a href="{{ route('upload_image') }}">Upload Image</a></li>
-                    <li><a href="{{ route('event_standings') }}">Event Standings</a></li>
+                        &nbsp;
+                        <li><a href="{{ route('upload_image') }}">Upload Image</a></li>
+                        <li><a href="{{ route('event_standings') }}">Event Standings</a></li>
                         @if(Auth::user()->role_id == 1)
                             <li><a href="{{ route('admin') }}">Admin Panel</a></li>
                         @endif
