@@ -28,6 +28,7 @@ class EventStandingsController extends Controller
             ->join('event_image', 'user_id', '=', 'users.id')
             ->join('event_standings', 'event_standings.user_id', '=', 'users.id')
             ->where('event_image.active', '=', 1)
+            ->orderBy('votes_count','desc')
             ->get();
 
         return view('event_standings', ['result' => $result]);
