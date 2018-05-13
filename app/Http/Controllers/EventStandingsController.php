@@ -19,15 +19,15 @@ class EventStandingsController extends Controller
 
     function createRecord($user_id)
     {
-        return EventStandings::updateOrCreate(['user_id' => $user_id],['votes_count' => 0]);
+        return EventStandings::updateOrCreate(['user_id' => $user_id], ['votes_count' => 0]);
     }
 
     function index()
     {
         $result = User::select(DB::raw("users.name, event_image.image_url, event_standings.votes_count, event_image.id"))
-            ->join('event_image','user_id','=','users.id')
-            ->join('event_standings','event_standings.user_id','=','users.id')
-//            ->where('users.id','=',Auth::user()->id)
+            ->join('event_image', 'user_id', '=', 'users.id')
+            ->join('event_standings', 'event_standings.user_id', '=', 'users.id')
+            ->where('event_image.active', '=', 1)
             ->get();
 
         return view('event_standings', ['result' => $result]);
@@ -44,17 +44,12 @@ class EventStandingsController extends Controller
             ->where('image_id', '=', $image_id)
             ->get();
 
-        if(count($check_record) == 0)
-        {
-            UserToImage::updateOrCreate(['user_id' => $user_id, 'image_id' => $image_id],['is_vote' => 1]);
-        }
-        elseif($check_record[0]->is_vote == 1)
-        {
-            UserToImage::updateOrCreate(['user_id' => $user_id, 'image_id' => $image_id],['is_vote' => 0]);
-        }
-        else
-        {
-            UserToImage::updateOrCreate(['user_id' => $user_id, 'image_id' => $image_id],['is_vote' => 1]);
+        if (count($check_record) == 0) {
+            UserToImage::updateOrCreate(['user_id' => $user_id, 'image_id' => $image_id], ['is_vote' => 1]);
+        } elseif ($check_record[0]->is_vote == 1) {
+            UserToImage::updateOrCreate(['user_id' => $user_id, 'image_id' => $image_id], ['is_vote' => 0]);
+        } else {
+            UserToImage::updateOrCreate(['user_id' => $user_id, 'image_id' => $image_id], ['is_vote' => 1]);
         }
 
         return $this->updateVoteCount($image_id);

@@ -24,7 +24,7 @@ class EventImageController extends Controller
 
     function getFiles(Request $request)
     {
-        if(Input::hasFile('file')){
+        if (Input::hasFile('file')) {
             $file = Input::file('file');
             $file_name = $file->getClientOriginalName();
             $file->move('images', $file_name);
@@ -40,6 +40,6 @@ class EventImageController extends Controller
 
     function addImageUrlIntoDb($user_id, $file_name)
     {
-        return EventImage::updateOrCreate(['user_id' => $user_id],['image_url' => $file_name]);
+        return EventImage::updateOrCreate(['user_id' => $user_id], ['image_url' => $file_name]);
     }
 }

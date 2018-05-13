@@ -1,10 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="container">
 
-    <div id="main">
+        <div class="row">
+
+
+            <div class="col-md-12">
+    <div class="table-responsive table-bordred main" id="main">
         <label id="labelContent"></label>
-        <table id="mainTable" class="table table-bordered">
+        <table id="mainTable" class="table table-bordred table-striped table-hover table-condensed">
             <thead>
             <th>Nickname</th>
             <th>Image</th>
@@ -26,9 +31,11 @@
             </tbody>
         </table>
     </div>
-
+            </div>
+        </div>
+    </div>
 
     <script type='text/javascript' src="{{asset('js/event_standings.js')}}"></script>
-    {{--<link rel="stylesheet" href="{{asset('css/reports/motivate.css')}}">--}}
+    <link rel="stylesheet" href="{{asset('css/event_standings.css')}}">
 
 @endsection

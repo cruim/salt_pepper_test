@@ -1,0 +1,5 @@
+.table td th tr,#mytable td th tr{
+    text-align: center;
+}
+
+.table-bordered th, .table-bordered td, #mytable { border: 1px solid #ddd!important }
