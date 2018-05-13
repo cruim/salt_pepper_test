@@ -12,6 +12,11 @@ use Illuminate\Validation\Rules\In;
 
 class EventImageController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     function index()
     {
         return view('image_upload');
@@ -30,7 +35,7 @@ class EventImageController extends Controller
             $event_standings = new EventStandingsController();
             $event_standings->createRecord($user_id);
         }
-        return redirect()->to('/');
+        return redirect()->to('/event_standings');
     }
 
     function addImageUrlIntoDb($user_id, $file_name)

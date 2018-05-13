@@ -20,5 +20,9 @@ Route::get('/home', 'HomeController@index');
 
 Auth::routes();
 
-Route::get('upload_image','EventImageController@index');
+Route::get('upload_image','EventImageController@index')->name('upload_image');
 Route::post('upload_image/files','EventImageController@getFiles');
+
+Route::get('event_standings','EventStandingsController@index')->name('event_standings');
+
+Route::get('update_vote_count','EventStandingsController@voteForImage');
